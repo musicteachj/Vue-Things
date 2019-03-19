@@ -1,4 +1,4 @@
-# test
+# Vue-Things
 
 ## Project setup
 ```
