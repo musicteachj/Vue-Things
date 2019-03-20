@@ -1,10 +1,9 @@
 <template>
-  <v-card height="200px" flat>
-    <div class="headline text-xs-center pa-5">
+  <v-card class="bottomNavCard" height="55px" flat>
+    <!-- <div class="headline text-xs-center pa-5">
       Active: {{ bottomNav }}
-    </div>
+    </div> -->
     <v-bottom-nav
-      :active.sync="bottomNav"
       :value="true"
       absolute
       color="transparent"
@@ -23,6 +22,7 @@
         color="teal"
         flat
         value="favorites"
+        to="/"
       >
         <span>Favorites</span>
         <v-icon>favorite</v-icon>
@@ -44,8 +44,16 @@
   export default {
     data () {
       return {
-        bottomNav: 'recent'
+        
       }
     }
   }
 </script>
+
+<style scoped>
+.bottomNavCard {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+</style>
