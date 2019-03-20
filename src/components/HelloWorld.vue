@@ -1,5 +1,4 @@
 <template>
-  <v-app>
   <div class="hello">
     <v-container>
     <v-text-field v-model="barcodeValue" placeholder="Enter barcode value"/><br>
@@ -35,7 +34,6 @@
     </ul> -->
     </v-container>
   </div>
-  </v-app>
 </template>
 
 <script>
