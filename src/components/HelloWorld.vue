@@ -5,6 +5,11 @@
     <barcode v-bind:value="barcodeValue">
       Show this if the rendering fails.
     </barcode>
+    <v-btn 
+      color="success"
+      to="/comp1">
+      Change Route
+    </v-btn>
     <!-- <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
