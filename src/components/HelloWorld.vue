@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
     <v-container>
-    <v-text-field v-model="barcodeValue" placeholder="Enter barcode value"/><br>
-    <barcode v-bind:value="barcodeValue">
-      Enter your barcode above
-    </barcode>
+      <v-text-field v-model="barcodeValue" placeholder="Enter barcode value"/><br>
+      <barcode v-bind:value="barcodeValue">
+        Enter your barcode above
+      </barcode>
     </v-container>
   </div>
 </template>

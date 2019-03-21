@@ -8,22 +8,22 @@ import Comp2 from "@/components/Comp2.vue";
 Vue.use(Router)
 
 export default new Router ({
-    mode: "history",
-    routes: [
-        {
-            path: "/",
-            component: HelloWorld,
-            name: 'Hello World'
-        },
-        {
-            path: "/comp1",
-            component: Comp1,
-            name: 'Comp1'
-        },
-        {
-            path: '/comp2',
-            component: Comp2,
-            name: 'Comp2'
-        }
-    ]
+  mode: "history",
+  routes: [
+    {
+      path: "/",
+      component: HelloWorld,
+      name: 'Hello World'
+    },
+    {
+      path: "/comp1",
+      component: Comp1,
+      name: 'Comp1'
+    },
+    {
+      path: '/comp2',
+      component: Comp2,
+      name: 'Comp2'
+    }
+  ]
 }) 

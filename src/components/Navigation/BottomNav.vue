@@ -1,8 +1,6 @@
 <template>
+  <div>
   <v-card class="bottomNavCard" height="55px" flat>
-    <!-- <div class="headline text-xs-center pa-5">
-      Active: {{ bottomNav }}
-    </div> -->
     <v-bottom-nav
       :value="true"
       absolute
@@ -15,14 +13,14 @@
         to="/comp1"
       >
         <span>Recent</span>
-        <v-icon>history</v-icon>
+        <v-icon>android</v-icon>
       </v-btn>
 
       <v-btn
         color="teal"
         flat
         value="favorites"
-        to="/"
+        to="/comp2"
       >
         <span>Favorites</span>
         <v-icon>favorite</v-icon>
@@ -38,6 +36,7 @@
       </v-btn>
     </v-bottom-nav>
   </v-card>
+  </div>
 </template>
 
 <script>

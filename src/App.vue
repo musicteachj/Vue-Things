@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <v-app>
-    <router-view />
-    <bottom-nav />
+      <tool-bar />
+      <router-view />
+      <bottom-nav />
     </v-app>
   </div>
 </template>
 
 <script>
 import BottomNav from './components/Navigation/BottomNav';
+import ToolBar from './components/Navigation/Toolbar.vue';
 
 export default {
   name: 'app',
   components: {
-    BottomNav
+    BottomNav,
+    ToolBar
   }
 }
 </script>
