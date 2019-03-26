@@ -10,23 +10,23 @@
         flat
         value="recent"
         to="/comp1">
-        <span>Recent</span>
-        <v-icon>android</v-icon>
+        <span>Manual</span>
+        <v-icon>keyboard</v-icon>
       </v-btn>
       <v-btn
         color="teal"
         flat
         value="favorites"
         to="/comp2">
-        <span>Favorites</span>
-        <v-icon>favorite</v-icon>
+        <span>Scan</span>
+        <v-icon>mdi-barcode-scan</v-icon>
       </v-btn>
       <v-btn
         color="teal"
         flat
         value="nearby">
-        <span>Nearby</span>
-        <v-icon>place</v-icon>
+        <span>Print</span>
+        <v-icon>print</v-icon>
       </v-btn>
     </v-bottom-nav>
   </v-card>
