@@ -6,7 +6,6 @@
         large
         fab
         flat
-        value="recent"
         to="/">
         <v-icon color="white">home</v-icon>
       </v-btn>

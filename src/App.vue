@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <tool-bar />
-      <router-view />
+        <router-view />
       <bottom-nav />
     </v-app>
   </div>
@@ -27,5 +27,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color: white;
 }
 </style>
