@@ -1,5 +1,4 @@
 <template>
-  <div class="hello">
     <v-container>
       <!-- <v-text-field v-model="barcodeValue" placeholder="Enter barcode value"/><br>
       <barcode v-bind:value="barcodeValue">
@@ -7,25 +6,50 @@
       </barcode> -->
       <h1 class="display-3 intro">Barcode Generator</h1>
       <h1 class="display-2 secondIntro">Create your own barcodes and print them out</h1>
-      <barcode class="barHome" v-bind:value="barcodeValue">
-        Enter your barcode above
-      </barcode>
+      <div id="exampleBarcodeContainer">
+        <h1 class="test">test</h1>
+        <barcode class="barHome" :value="barcodeValue">
+          Enter your barcode above
+        </barcode>
+      </div>
+      <v-btn 
+        color="success"
+        @click="printExample()">
+         Print
+      </v-btn>
     </v-container>
-  </div>
 </template>
 
 <script>
 import VueBarcode from 'vue-barcode';
+import Printd from 'printd';
+
+const d = new Printd();
+const cssText = `
+.test {
+  margin-left: 20px !important;
+  color: blue;
+  border: 1px solid purple;
+  font-size: 8px;
+}
+.barHome {
+  margin-left: 40px;
+}
+`;
 
 export default {
-  name: 'HelloWorld',
+  components: {
+    'barcode': VueBarcode
+  },
   data() {
     return {
       barcodeValue: "example"
     }
   },
-  components: {
-    'barcode': VueBarcode
+  methods: {
+    printExample() {
+      d.print( document.getElementById("exampleBarcodeContainer"), cssText);
+    },
   }
 }
 </script>
