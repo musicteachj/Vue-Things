@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HelloWorld from '@/components/HelloWorld.vue';
-import Comp1 from '@/components/Comp1.vue';
-import Comp2 from "@/components/Comp2.vue";
+import Home from '@/components/Home.vue';
+import Manual from '@/components/Manual.vue';
+import Scan from "@/components/Scan.vue";
+import Print from "@/components/Print.vue";
 
 Vue.use(Router)
 
@@ -12,18 +13,23 @@ export default new Router ({
   routes: [
     {
       path: "/",
-      component: HelloWorld,
-      name: 'Hello World'
+      component: Home,
+      name: 'Home'
     },
     {
-      path: "/comp1",
-      component: Comp1,
-      name: 'Comp1'
+      path: "/manual",
+      component: Manual,
+      name: 'Manual'
     },
     {
-      path: '/comp2',
-      component: Comp2,
-      name: 'Comp2'
+      path: '/scan',
+      component: Scan,
+      name: 'Scan'
+    },
+    {
+      path: '/print',
+      component: Print,
+      name: "Print"
     }
   ]
 }) 

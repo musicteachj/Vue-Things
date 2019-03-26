@@ -1,3 +1,3 @@
 <template>
-    <h1>Comp1</h1>
+    <h1>Print</h1>
 </template>

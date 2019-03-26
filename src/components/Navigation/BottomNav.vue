@@ -8,23 +8,21 @@
       <v-btn
         color="teal"
         flat
-        value="recent"
-        to="/comp1">
+        to="/manual">
         <span>Manual</span>
         <v-icon>keyboard</v-icon>
       </v-btn>
       <v-btn
         color="teal"
         flat
-        value="favorites"
-        to="/comp2">
+        to="/scan">
         <span>Scan</span>
         <v-icon>mdi-barcode-scan</v-icon>
       </v-btn>
       <v-btn
         color="teal"
         flat
-        value="nearby">
+        to="/print">
         <span>Print</span>
         <v-icon>print</v-icon>
       </v-btn>

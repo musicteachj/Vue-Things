@@ -1,3 +1,3 @@
 <template>
-    <h1>Comp2</h1>
+    <h1>Scan</h1>
 </template>
