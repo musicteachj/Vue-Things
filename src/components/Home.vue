@@ -25,6 +25,8 @@ import VueBarcode from 'vue-barcode';
 import Printd from 'printd';
 
 const d = new Printd();
+
+// NOT PICKING UP THIS CSS :(
 const cssText = `
 .test {
   margin-left: 20px !important;
@@ -48,7 +50,7 @@ export default {
   },
   methods: {
     printExample() {
-      d.print( document.getElementById("exampleBarcodeContainer"), cssText);
+      d.print(document.getElementById("exampleBarcodeContainer"), cssText);
     },
   }
 }
