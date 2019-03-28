@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     printExample() {
-      d.print(document.getElementById("exampleBarcodeContainer"), cssText);
+      d.print(document.getElementById("exampleBarcodeContainer"), [cssText]);
     },
   }
 }
