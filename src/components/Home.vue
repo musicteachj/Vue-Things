@@ -7,7 +7,6 @@
       <h1 class="display-3 intro">Barcode Generator</h1>
       <h1 class="display-2 secondIntro">Create your own barcodes and print them out</h1>
       <div id="exampleBarcodeContainer">
-        <h1 class="test">test</h1>
         <barcode class="barHome" :value="barcodeValue">
           Enter your barcode above
         </barcode>
@@ -28,12 +27,6 @@ const d = new Printd();
 
 // NOT PICKING UP THIS CSS :(
 const cssText = `
-.test {
-  margin-left: 20px !important;
-  color: blue;
-  border: 1px solid purple;
-  font-size: 8px;
-}
 .barHome {
   margin-left: 40px;
 }
