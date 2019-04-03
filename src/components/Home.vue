@@ -16,6 +16,13 @@
         @click="printExample()">
          Print
       </v-btn>
+      <v-carousel class="car">
+        <v-carousel-item
+          v-for="(item,i) in items"
+          :key="i"
+          :src="item.src"
+        ></v-carousel-item>
+      </v-carousel>
     </v-container>
 </template>
 
@@ -37,7 +44,21 @@ export default {
   },
   data() {
     return {
-      barcodeValue: "example"
+      barcodeValue: "example",
+       items: [
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+          }
+        ]
     }
   },
   methods: {
@@ -58,5 +79,9 @@ export default {
 }
 .hello {
   background-color: white;
+}
+.car {
+  margin-bottom: 5%;
+  margin-top: 5%
 }
 </style>
