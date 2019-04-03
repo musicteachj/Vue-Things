@@ -25,7 +25,6 @@ import Printd from 'printd';
 
 const d = new Printd();
 
-// NOT PICKING UP THIS CSS :(
 const cssText = `
 .barHome {
   margin-left: 40px;
