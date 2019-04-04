@@ -3,11 +3,14 @@
       
       <v-layout row wrap>
         <v-flex xs2>
-          <v-card dark color="primary">
-            <h1>3</h1>
-            <ul>
-              <li v-for="(item, index) in barcodeTypes" :key="index">{{item.type}}</li>
-            </ul>
+          <v-card flat>
+            <h1 class="title">Available Types</h1>
+            <h1 
+              v-for="(item, index) in barcodeTypes" 
+              :key="index"
+              class="subheading">
+              {{item.type}}
+            </h1>
           </v-card>
         </v-flex>
         <v-flex xs8>
@@ -34,8 +37,14 @@
           </v-card>
         </v-flex>
         <v-flex xs2>
-          <v-card dark color="primary">
-            <h1>3</h1>
+          <v-card flat>
+            <h1 class="display-1">Available Types</h1>
+            <h1 
+              v-for="(item, index) in barcodeTypes" 
+              :key="index"
+              class="headline">
+              {{item.type}}
+            </h1>
           </v-card>
         </v-flex>
       </v-layout>
@@ -62,18 +71,10 @@ export default {
     return {
       barcodeValue: "example",
       items: [
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-        }
+        { src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'},
+        { src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'},
+        { src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'},
+        { src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'}
       ],
       barcodeTypes: [
         {type: "CODE128"},
@@ -81,7 +82,16 @@ export default {
         {type: "EAN13"},
         {type: "EAN8"},
         {type: "EAN5"},
-        {type: "EAN2"}
+        {type: "EAN2"},
+        {type: "CODE39"},
+        {type: "ITF14"},
+        {type: "MSI"},
+        {type: "MSI10"},
+        {type: "MSI11"},
+        {type: "MSI1010"},
+        {type: "MSI1110"},
+        {type: "PHARMACODE"},
+        {type: "CODABAR"}
       ]
     }
   },
@@ -95,8 +105,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.intro {
-  
+.title {
+  margin-bottom: 10%;
+}
+.subheading {
+  margin-bottom: 5%;
 }
 .secondIntro, .barHome {
   margin-top: 4%;
