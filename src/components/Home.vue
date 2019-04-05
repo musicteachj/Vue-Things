@@ -51,22 +51,64 @@
               class="car"
               hide-delimiters>
               <v-carousel-item>
-                <barcode
-                  format="CODE128"
-                  value="Example1234">
-                </barcode>
+                <barcode format="CODE128" value="Example1234"></barcode>
+                <p>CODE128</p>
               </v-carousel-item>
               <v-carousel-item>
-                <barcode
-                  format="EAN13"
-                  value="5901234123457">
-                </barcode>
+                <barcode format="EAN13" value="5901234123457"></barcode>
+                <p>EAN13</p>
               </v-carousel-item>
               <v-carousel-item>
-                <barcode
-                  format="UPC"
-                  value="123456789999">
-               </barcode>
+                <barcode format="UPC" value="123456789999"></barcode>
+               <p>UPC</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="EAN8" value="96385074"></barcode>
+                <p>EAN8</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="EAN5" value="54495"></barcode>
+                <p>EAN5</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="EAN2" value="53"></barcode>
+                <p>EAN2</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="CODE39" value="CODE39 Barcode"></barcode>
+                <p>CODE39</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="ITF14" value="12345678901231"></barcode>
+                <p>ITF14</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="MSI" value="1234"></barcode>
+                <p>MSI</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="MSI10" value="1234"></barcode>
+                <p>MSI10</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="MSI11" value="1234"></barcode>
+                <p>MSI11</p>
+              </v-carousel-item>
+               <v-carousel-item>
+                <barcode format="MSI1010" value="1234"></barcode>
+                <p>MSI1010</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="MSI1110" value="1234"></barcode>
+                <p>MSI1110</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="pharmacode" value="1234"></barcode>
+                <p>PHARMACODE</p>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode format="codabar" value="1234567890"></barcode>
+                <p>CODABAR</p>
               </v-carousel-item>
             </v-carousel>
           </v-card>
@@ -99,12 +141,6 @@ export default {
   data() {
     return {
       barcodeValue: "example",
-      items: [
-        { src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'},
-        { src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'},
-        { src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'},
-        { src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'}
-      ],
       barcodeTypes: [
         {type: "CODE128"},
         {type: "UPC"},
