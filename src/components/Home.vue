@@ -49,7 +49,8 @@
           <v-card flat>
             <v-carousel 
               class="car"
-              hide-delimiters>
+              hide-delimiters
+              interval="4000">
               <v-carousel-item>
                 <barcode format="CODE128" value="Example1234"></barcode>
                 <p>CODE128</p>
