@@ -47,12 +47,27 @@
         </v-flex>
         <v-flex xs4>
           <v-card flat>
-            <v-carousel class="car">
-              <v-carousel-item
-                v-for="(item,i) in items"
-                :key="i"
-                :src="item.src"
-              ></v-carousel-item>
+            <v-carousel 
+              class="car"
+              hide-delimiters>
+              <v-carousel-item>
+                <barcode
+                  format="CODE128"
+                  value="Example1234">
+                </barcode>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode
+                  format="EAN13"
+                  value="5901234123457">
+                </barcode>
+              </v-carousel-item>
+              <v-carousel-item>
+                <barcode
+                  format="UPC"
+                  value="123456789999">
+               </barcode>
+              </v-carousel-item>
             </v-carousel>
           </v-card>
         </v-flex>
@@ -136,5 +151,8 @@ export default {
   /* margin-bottom: 5%;
   margin-top: 5%; */
   height: 250px !important;
+}
+.v-carousel {
+  box-shadow: none;
 }
 </style>
