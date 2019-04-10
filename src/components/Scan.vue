@@ -11,15 +11,25 @@
      stop
   </v-btn>
   <div id="barC"></div>
+  <div id="barDisplay">
+      <barcode
+         :value="barValue">
+      </barcode>
+  </div>
   </v-container>
 </template>
 
 <script>
 import Quagga from 'quagga';
+import VueBarcode from 'vue-barcode';
+
 export default {
+    components: {
+    'barcode': VueBarcode
+  },
   data() {
     return {
-
+        barValue: "test"
     }
   },
   methods: {
@@ -30,9 +40,16 @@ export default {
                     type: "LiveStream",
                     target: document.querySelector('#barC'),
                     constraints: {
-                       width: 640,
-                       height: 480,
+                       width: {min: 640},
+                        height: {min: 480},
+                        aspectRatio: {min: 1, max: 100},
                         facingMode: "environment"
+                    },
+                    area: { // defines rectangle of the detection/localization area
+                        top: "0%",    // top offset
+                        right: "0%",  // right offset
+                        left: "0%",   // left offset
+                        bottom: "0%"  // bottom offset
                     },
                 },
                 decoder: {
@@ -101,9 +118,7 @@ export default {
             });
 
 
-            Quagga.onDetected(function (result) {
-                console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-            });
+            
         
   
     },
@@ -111,7 +126,30 @@ export default {
       Quagga.stop();
     }
     
+  },
+  computed: {
+      detect() {
+          Quagga.onDetected(function (result) {
+                console.log("barV");
+                console.log(this.barValue);
+                console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                this.barValue = result.codeResult.code;
+                console.log("barvalue:");
+                console.log(this.barValue);
+                Quagga.stop();
+            });
+      }
+      
   }
 }
 </script>
+
+<style scoped>
+#barC {
+    background-color: blue !important;
+    width: 640px;
+    height:480px;
+}
+</style>
+
 
