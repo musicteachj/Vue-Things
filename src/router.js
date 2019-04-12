@@ -19,7 +19,7 @@ export default new Router ({
     {
       path: "/manual",
       component: Manual,
-      name: 'Manual'
+      name: 'manual'
     },
     {
       path: '/scan',
