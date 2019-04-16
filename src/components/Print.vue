@@ -1,6 +1,5 @@
 <template>
   <div>
-      <h1>test</h1>
       <h1>Posts</h1>
         <div class="row">
           <div class="col-md-10"></div>

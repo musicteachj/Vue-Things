@@ -9,7 +9,7 @@
         to="/">
         <v-icon color="white">home</v-icon>
       </v-btn>
-      <v-toolbar-title>TITLE</v-toolbar-title>
+      <v-toolbar-title>{{$route.meta.title}}</v-toolbar-title>
     </v-toolbar>
     </div>
 </template>

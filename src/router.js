@@ -14,22 +14,34 @@ export default new Router ({
     {
       path: "/",
       component: Home,
-      name: 'Home'
+      name: 'Home',
+      meta: {
+        title: "Home"
+      }
     },
     {
       path: "/manual",
       component: Manual,
-      name: 'manual'
+      name: 'manual',
+      meta: {
+        title: "Manual"
+      }
     },
     {
       path: '/scan',
       component: Scan,
-      name: 'Scan'
+      name: 'Scan',
+      meta: {
+        title: "Scan"
+      }
     },
     {
       path: '/print',
       component: Print,
-      name: "print"
+      name: "print",
+      meta: {
+        title: "Print"
+      }
     }
   ]
 }) 
