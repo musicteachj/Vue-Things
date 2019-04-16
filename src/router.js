@@ -29,7 +29,7 @@ export default new Router ({
     {
       path: '/print',
       component: Print,
-      name: "Print"
+      name: "print"
     }
   ]
 }) 

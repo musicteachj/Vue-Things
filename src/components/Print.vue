@@ -1,3 +1,49 @@
 <template>
-    <h1>Print</h1>
+  <div>
+      <h1>test</h1>
+      <h1>Posts</h1>
+        <div class="row">
+          <div class="col-md-10"></div>
+          <div class="col-md-2">
+            <router-link :to="{ name: 'manual' }" class="btn btn-primary">Create Post</router-link>
+          </div>
+        </div><br />
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Title</th>
+              <th>Body</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr v-for="post in posts" :key="post._id">
+                  <td>{{ post.title }}</td>
+                  <td>{{ post.body }}</td>
+                  <td><router-link :to="{name: 'edit', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
+                  <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
 </template>
+
+<script>
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+  export default {
+      data() {
+        return {
+          posts: []
+        }
+      },
+      created() {
+      let uri = 'http://localhost:4000/manual';
+      axios.get(uri).then(response => {
+        this.posts = response.data;
+      });
+    }
+  }
+</script>
