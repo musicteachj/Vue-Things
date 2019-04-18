@@ -37,7 +37,7 @@
                   <td>{{ post.title }}</td>
                   <td>{{ post.body }}</td>
                   <td><router-link :to="{name: 'print', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
-                  <td><button class="btn btn-danger" @click.prevent="deletePost(post._id)">Delete</button></td>
+                  <td><button class="btn btn-danger" @click="deletePost(post._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -67,11 +67,10 @@ export default {
       });
     },
     methods: {
-      deletePost(id)
-      {
+      deletePost(id) {
         let uri = `http://localhost:4000/scan/delete/${id}`;
         axios.delete(uri).then(response => {
-          this.posts.splice(this.posts.indexOf(id), 1);
+          this.posts.splice(this.posts.findIndex(i => i._id == id), 1);
         });
       },
     
