@@ -1,30 +1,27 @@
 <template>
   <div>
-      <h1>Posts</h1>
+      <h1>Edit Post</h1>
+    <form @submit.prevent="updatePost">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Post Title: </label>
+            <input type="text" class="form-control" v-model="post.title">
+          </div>
+        </div>
+        </div>
         <div class="row">
-          <div class="col-md-10"></div>
-          <div class="col-md-2">
-            <router-link :to="{ name: 'manual' }" class="btn btn-primary">Create Post</router-link>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Post Body: </label>
+              <textarea class="form-control" v-model="post.body" rows="5"></textarea>
+            </div>
           </div>
         </div><br />
-
-        <table class="table table-hover">
-            <thead>
-            <tr>
-              <th>Title</th>
-              <th>Body</th>
-              <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr v-for="post in posts" :key="post._id">
-                  <td>{{ post.title }}</td>
-                  <td>{{ post.body }}</td>
-                  <td><router-link :to="{name: 'edit', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
-                  <td><button class="btn btn-danger">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="form-group">
+          <button class="btn btn-primary">Update</button>
+        </div>
+    </form>
   </div>
 </template>
 
@@ -35,14 +32,22 @@ import axios from 'axios';
   export default {
       data() {
         return {
-          posts: []
+          post: {}
         }
       },
       created() {
-      let uri = 'http://localhost:4000/manual';
-      axios.get(uri).then(response => {
-        this.posts = response.data;
-      });
-    }
+        let uri = `http://localhost:4000/scan/edit/${this.$route.params.id}`;
+        axios.get(uri).then((response) => {
+            this.post = response.data;
+        });
+      },
+      methods: {
+        updatePost() {
+          let uri = `http://localhost:4000/scan/update/${this.$route.params.id}`;
+          axios.post(uri, this.post).then(() => {
+            this.$router.push({name: 'scan'});
+          });
+        }
+      }
   }
 </script>

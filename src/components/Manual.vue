@@ -77,9 +77,9 @@ export default {
     },
     addPost(){
       console.log(this.post);
-      let uri = 'http://localhost:4000/manual/add';
+      let uri = 'http://localhost:4000/scan/add';
       axios.post(uri, this.post).then(() => {
-        this.$router.push({name: 'manual'});
+        this.$router.push({name: 'scan'});
       });
       // axios.post('http://localhost:4000/manual/add', {
       //   title: this.post.title,
