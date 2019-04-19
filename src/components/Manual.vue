@@ -12,11 +12,11 @@
             <v-text-field
               clearable
               placeholder="Input Barcode"
-              v-model="barcodeInput">
+              v-model="post.barcodeValue">
             </v-text-field>
             <div id="barcodeContainer">
               <barcode
-                :value="barcodeInput">
+                :value="post.barcodeValue">
               </barcode>
             </div>
             <v-btn 
@@ -38,10 +38,10 @@
           </v-card>
         </v-flex>
       </v-layout>
-      <v-text-field v-model="post.title">
+      <!-- <v-text-field v-model="post.title">
       </v-text-field>
       <v-text-field v-model="post.body">
-      </v-text-field>
+      </v-text-field> -->
     </v-container>        
   </div> <!-- End div -->
 </template>
@@ -68,7 +68,9 @@ export default {
   data() {
     return {
       barcodeInput: "",
-      post:{}
+      post:{
+        barcodeValue: ""
+      }
     }
   },
   methods: {

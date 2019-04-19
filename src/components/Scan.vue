@@ -27,15 +27,13 @@
         <table class="table table-hover">
             <thead>
             <tr>
-              <th>Title</th>
-              <th>Body</th>
+              <th>Barcode V</th>
               <th>Actions</th>
             </tr>
             </thead>
             <tbody>
                  <tr v-for="post in posts" :key="post._id">
-                  <td>{{ post.title }}</td>
-                  <td>{{ post.body }}</td>
+                  <td>{{ post.barcodeValue }}</td>
                   <td><router-link :to="{name: 'print', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
                   <td><button class="btn btn-danger" @click="deletePost(post._id)">Delete</button></td>
                 </tr>
