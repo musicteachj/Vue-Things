@@ -38,10 +38,6 @@
           </v-card>
         </v-flex>
       </v-layout>
-      <!-- <v-text-field v-model="post.title">
-      </v-text-field>
-      <v-text-field v-model="post.body">
-      </v-text-field> -->
     </v-container>        
   </div> <!-- End div -->
 </template>
@@ -83,18 +79,7 @@ export default {
       axios.post(uri, this.post).then(() => {
         this.$router.push({name: 'scan'});
       });
-      // axios.post('http://localhost:4000/manual/add', {
-      //   title: this.post.title,
-      //   body: this.post.body
-      // })
-      // .then(function (response) {
-      //   console.log(response);
-      //    this.$router.push({name: 'manual'})
-      // })
-      // .catch(function (error) {
-      //   console.log(error);
-      // });
-      }
+    }
   }
 }
 </script>

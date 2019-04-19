@@ -34,11 +34,54 @@
             <tbody>
                  <tr v-for="post in posts" :key="post._id">
                   <td>{{ post.barcodeValue }}</td>
-                  <td><router-link :to="{name: 'print', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
+                  <td @click="showDialog(post)">Edit</td>
+                  <!-- <td><router-link :to="{name: 'print', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td> -->
                   <td><button class="btn btn-danger" @click="deletePost(post._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
+
+        <v-dialog
+          v-model="dialog"
+          width="500"
+        >
+          <!-- <template v-slot:activator="{ on }">
+            <v-btn
+              color="red lighten-2"
+              dark
+              v-on="on"
+            >
+              Click Me
+            </v-btn>
+          </template> -->
+
+          <v-card>
+            <v-card-title
+              class="headline grey lighten-2"
+              primary-title
+            >
+              Edit Barcode
+            </v-card-title>
+
+            <v-card-text>
+              {{newThing}}
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="primary"
+                flat
+                @click="dialog = false"
+              >
+                I accept
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
   </v-container>
 </template>
 
@@ -55,7 +98,10 @@ export default {
   data() {
     return {
         barValue: "test",
-         posts: []
+         posts: [],
+         dialog: false,
+         post: {},
+         newThing: ""
     }
   },
   created() {
@@ -72,7 +118,12 @@ export default {
         });
       },
     
-      
+      showDialog(id) {
+        console.log(id);
+        this.newThing = id.barcodeValue;
+        this.dialog = true;
+      },
+
     openScanner() {
      Quagga.init({
                 inputStream: {
