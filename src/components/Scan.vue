@@ -27,12 +27,14 @@
         <table class="table table-hover">
             <thead>
             <tr>
+              <th>Index</th>
               <th>Barcode V</th>
               <th>Actions</th>
             </tr>
             </thead>
             <tbody>
                  <tr v-for="post in posts" :key="post._id">
+                  <td>{{posts.indexOf(post) + 1}}</td>
                   <td>{{ post.barcodeValue }}</td>
                   <td @click="showDialog(post)">Edit</td>
                   <!-- <td><router-link :to="{name: 'print', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td> -->
@@ -63,9 +65,23 @@
               Edit Barcode
             </v-card-title>
 
-            <v-card-text>
+            <v-container>
+              <v-text-field
+              clearable
+              v-model="newThing">
+            </v-text-field>
+            <div id="barcodeContainer">
+              <barcode
+                :value="newThing">
+              </barcode>
+            </div>
+
+            <!-- <v-card-text>
               {{newThing}}
-            </v-card-text>
+            </v-card-text> -->
+            </v-container>
+
+            
 
             <v-divider></v-divider>
 
