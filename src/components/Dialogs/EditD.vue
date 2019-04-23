@@ -20,7 +20,7 @@
             </v-text-field>
             <div id="barcodeContainer">
               <barcode
-                :value="newThing">
+                :value="dPost._id">
               </barcode>
             </div>
             </v-container>
@@ -45,9 +45,7 @@
 import VueBarcode from 'vue-barcode';
 
 export default {
-  props: {
-    value: Boolean
-  },
+  props: ['dPost', 'value'],
   components: {
       'barcode': VueBarcode
     },
@@ -59,7 +57,7 @@ export default {
     }
   },
   methods: {
-    openDialog() {
+    openED() {
       this.dialog = true;
     }
   },

@@ -10,7 +10,7 @@
           <v-spacer></v-spacer>
           <v-btn 
             icon
-            @click="editDialog(post)"
+            @click="openEditDialog(post)"
             >
             <v-icon>edit</v-icon>
           </v-btn>
@@ -22,6 +22,7 @@
         </v-card-actions>
         <edit-dialog
         v-model="dialog"
+        :dPost="post"
         />
       </v-card>
 
@@ -108,12 +109,16 @@ import EditDialog from '@/components/Dialogs/EditD.vue';
             this.posts.splice(this.posts.findIndex(i => i._id == id), 1);
           });
         },
-      
-        editDialog(id) {
-          console.log(id);
-          this.newThing = id.barcodeValue;
+        openEditDialog(post) {
+          console.log("clicked")
           this.dialog = true;
         },
+      
+        // editDialog(id) {
+        //   console.log(id);
+        //   this.newThing = id.barcodeValue;
+        //   this.dialog = true;
+        // },
     }
   }
 </script>
