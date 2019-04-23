@@ -1,53 +1,114 @@
 <template>
   <div>
-      <h1>Edit Post</h1>
-    <form @submit.prevent="updatePost">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Post Title: </label>
-            <input type="text" class="form-control" v-model="post.barcodeValue">
-          </div>
-        </div>
-        </div>
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Post Body: </label>
-              <textarea class="form-control" v-model="post.body" rows="5"></textarea>
+    <v-container>
+      <v-card 
+        v-for="(post, index) in posts"
+        :key="index">
+        <barcode :value="post.barcodeValue">
+        </barcode>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn 
+            icon
+            @click="editDialog(post)"
+            >
+            <v-icon>edit</v-icon>
+          </v-btn>
+          <v-btn
+            icon
+            @click="deletePost(post._id)">
+            <v-icon>delete</v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+
+       <v-dialog
+          v-model="dialog"
+          width="500"
+        >
+          <v-card>
+            <v-card-title
+              class="headline grey lighten-2"
+              primary-title
+            >
+              Edit Barcode
+            </v-card-title>
+
+            <v-container>
+              <v-text-field
+              clearable
+              v-model="newThing">
+            </v-text-field>
+            <div id="barcodeContainer">
+              <barcode
+                :value="newThing">
+              </barcode>
             </div>
-          </div>
-        </div><br /> -->
-        <div class="form-group">
-          <button class="btn btn-primary">Update</button>
-        </div>
-    </form>
+            </v-container>
+            <v-divider></v-divider>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="primary"
+                flat
+                @click="dialog = false"
+              >
+                I accept
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+    </v-container>
   </div>
 </template>
 
 <script>
 import VueAxios from 'vue-axios';
 import axios from 'axios';
+import VueBarcode from 'vue-barcode';
 
   export default {
+     components: {
+      'barcode': VueBarcode
+    },
       data() {
         return {
-          post: {}
+          posts: [],
+           dialog: false,
+           newThing: ""
         }
       },
+      // created() {
+      //   let uri = `http://localhost:4000/scan/edit/${this.$route.params.id}`;
+      //   axios.get(uri).then((response) => {
+      //       this.post = response.data;
+      //   });
+      // },
       created() {
-        let uri = `http://localhost:4000/scan/edit/${this.$route.params.id}`;
-        axios.get(uri).then((response) => {
-            this.post = response.data;
+        let uri = 'http://localhost:4000/scan';
+        axios.get(uri).then(response => {
+          this.posts = response.data;
         });
       },
       methods: {
-        updatePost() {
-          let uri = `http://localhost:4000/scan/update/${this.$route.params.id}`;
-          axios.post(uri, this.post).then(() => {
-            this.$router.push({name: 'scan'});
+        // updatePost() {
+        //   let uri = `http://localhost:4000/scan/update/${this.$route.params.id}`;
+        //   axios.post(uri, this.post).then(() => {
+        //     this.$router.push({name: 'scan'});
+        //   });
+        // }
+        deletePost(id) {
+          let uri = `http://localhost:4000/scan/delete/${id}`;
+          axios.delete(uri).then(response => {
+            this.posts.splice(this.posts.findIndex(i => i._id == id), 1);
           });
-        }
-      }
+        },
+      
+        editDialog(id) {
+          console.log(id);
+          this.newThing = id.barcodeValue;
+          this.dialog = true;
+        },
+    }
   }
 </script>

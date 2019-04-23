@@ -16,7 +16,7 @@
          :value="barValue">
       </barcode>
   </div> -->
-   <h1>Posts</h1>
+   <h1>Barcodes</h1>
         <div class="row">
           <div class="col-md-10"></div>
           <div class="col-md-2">
@@ -38,7 +38,7 @@
                   <td>{{posts.indexOf(post) + 1}}</td>
                   <td>{{post._id}}</td>
                   <td>{{ post.barcodeValue }}</td>
-                  <td @click="showDialog(post)">Edit</td>
+                  <td @click="editDialog(post)">Edit</td>
                   <!-- <td><router-link :to="{name: 'print', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td> -->
                   <td><button class="btn btn-danger" @click="deletePost(post._id)">Delete</button></td>
                 </tr>
@@ -136,7 +136,7 @@ export default {
         });
       },
     
-      showDialog(id) {
+      editDialog(id) {
         console.log(id);
         this.newThing = id.barcodeValue;
         this.dialog = true;
