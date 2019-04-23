@@ -6,6 +6,10 @@ import Manual from '@/components/Manual.vue';
 import Scan from "@/components/Scan.vue";
 import Print from "@/components/Print.vue";
 
+import NewManual from '@/components/NewManual.vue';
+import NewScan from "@/components/NewScan.vue";
+import NewPrint from "@/components/NewPrint.vue";
+
 Vue.use(Router)
 
 export default new Router ({
@@ -41,6 +45,30 @@ export default new Router ({
       name: "print",
       meta: {
         title: "Print"
+      }
+    },
+    {
+      path: '/newmanual',
+      component: NewManual,
+      name: "newmanual",
+      meta: {
+        title: "New Manual"
+      }
+    },
+    {
+      path: '/newscan',
+      component: NewScan,
+      name: "newscan",
+      meta: {
+        title: "New Scan"
+      }
+    },
+    {
+      path: '/newprint',
+      component: NewPrint,
+      name: "newprint",
+      meta: {
+        title: "New Print"
       }
     }
   ]

@@ -260,5 +260,3 @@ export default {
     height:480px;
 }
 </style>
-
-

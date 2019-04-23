@@ -26,6 +26,28 @@
         <span>Print</span>
         <v-icon>print</v-icon>
       </v-btn>
+
+      <v-btn
+        color="teal"
+        flat
+        to="/newmanual">
+        <span>New Manual</span>
+        <v-icon>keyboard</v-icon>
+      </v-btn>
+      <v-btn
+        color="teal"
+        flat
+        to="/newscan">
+        <span>New Scan</span>
+        <v-icon>mdi-barcode-scan</v-icon>
+      </v-btn>
+      <v-btn
+        color="teal"
+        flat
+        to="/newprint">
+        <span>New Print</span>
+        <v-icon>print</v-icon>
+      </v-btn>
     </v-bottom-nav>
   </v-card>
   </div>
