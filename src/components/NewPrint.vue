@@ -20,9 +20,12 @@
             <v-icon>delete</v-icon>
           </v-btn>
         </v-card-actions>
+        <edit-dialog
+        v-model="dialog"
+        />
       </v-card>
 
-       <v-dialog
+       <!-- <v-dialog
           v-model="dialog"
           width="500"
         >
@@ -57,7 +60,7 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-        </v-dialog>
+        </v-dialog> -->
     </v-container>
   </div>
 </template>
@@ -66,10 +69,12 @@
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 import VueBarcode from 'vue-barcode';
+import EditDialog from '@/components/Dialogs/EditD.vue';
 
   export default {
      components: {
-      'barcode': VueBarcode
+      'barcode': VueBarcode,
+      EditDialog
     },
       data() {
         return {
