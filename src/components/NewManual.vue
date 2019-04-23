@@ -10,7 +10,6 @@
         <v-flex xs4>
           <v-card flat>
             <v-text-field
-              clearable
               placeholder="Input Barcode"
               v-model="post.barcodeValue">
             </v-text-field>
@@ -26,7 +25,7 @@
             </v-btn>
             <v-btn 
               color="success"
-              @click="printExamp()">
+              @click="showSnack()">
               Print
             </v-btn>
 
@@ -38,6 +37,14 @@
           </v-card>
         </v-flex>
       </v-layout>
+      <v-snackbar
+        color="success"
+        v-model="snackbar"
+        :bottom="true"
+        :timeout="timeout"
+      >
+      {{text}}
+      </v-snackbar>
     </v-container>        
   </div> <!-- End div -->
 </template>
@@ -66,10 +73,16 @@ export default {
       barcodeInput: "",
       post:{
         barcodeValue: ""
-      }
+      },
+      snackbar: false,
+      timeout: 3000,
+      text: "Save Successful"
     }
   },
   methods: {
+    showSnack() {
+      this.snackbar = true;
+    },
     printExample() {
       d.print(document.getElementById("barcodeContainer"), [cssText]);
     },
@@ -77,7 +90,8 @@ export default {
       console.log(this.post);
       let uri = 'http://localhost:4000/scan/add';
       axios.post(uri, this.post).then(() => {
-        this.$router.push({name: 'scan'});
+        this.showSnack();
+        this.post.barcodeValue = "";
       });
     }
   }
