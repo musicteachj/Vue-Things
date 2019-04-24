@@ -20,7 +20,7 @@
             </v-text-field>
             <div id="barcodeContainer">
               <barcode
-                :value="dPost._id">
+                :value="newThing">
               </barcode>
             </div>
             </v-container>
@@ -53,11 +53,12 @@ export default {
   data() {
     return {
       dialog: false,
-      newThing: ""
+      newThing: "test"
     }
   },
   methods: {
     openED() {
+      
       this.dialog = true;
     }
   },
@@ -70,6 +71,9 @@ export default {
          this.$emit('input', value)
       }
     }
+  },
+  beforeUpdate() {
+    this.newThing = "check";
   }
 }
 </script>

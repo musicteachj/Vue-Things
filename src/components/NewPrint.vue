@@ -20,12 +20,13 @@
             <v-icon>delete</v-icon>
           </v-btn>
         </v-card-actions>
-        <edit-dialog
-        v-model="dialog"
-        :dPost="post"
-        />
+        
       </v-card>
 
+      <edit-dialog
+        v-model="dialog"
+        :dPost="newP"
+        />
        <!-- <v-dialog
           v-model="dialog"
           width="500"
@@ -81,7 +82,8 @@ import EditDialog from '@/components/Dialogs/EditD.vue';
         return {
           posts: [],
            dialog: false,
-           newThing: ""
+           newThing: "",
+           newP: null
         }
       },
       // created() {
@@ -110,7 +112,9 @@ import EditDialog from '@/components/Dialogs/EditD.vue';
           });
         },
         openEditDialog(post) {
-          console.log("clicked")
+          console.log(post);
+          this.newP = post;
+          console.log(this.newP);
           this.dialog = true;
         },
       
